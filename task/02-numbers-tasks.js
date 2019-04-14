@@ -11,7 +11,7 @@
 
 
 /**
- * Returns an area of a rectangle given by width and heigth.
+ * Returns an area of a rectangle given by width and heigth.                      1
  *
  * @param {numder} width
  * @param {number} height
@@ -22,12 +22,12 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-    throw new Error('Not implemented');
+    return width * height;
 }
 
 
 /**
- * Returns a circumference of circle given by radius.
+ * Returns a circumference of circle given by radius.                             2
  *
  * @param {number} radius
  * @return {number}
@@ -38,11 +38,11 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    throw new Error('Not implemented');
+    return  2 * Math.PI * radius;
 }
 
 /**
- * Returns an average of two given numbers.
+ * Returns an average of two given numbers.                                  3
  *
  * @param {numder} value1
  * @param {number} value2
@@ -54,11 +54,14 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    throw new Error('Not implemented');
+
+    return value1 + value2 === Infinity ? (value1 - value2) / 2 + value2 : (value1 + value2) / 2;
+
+
 }
 
 /**
- * Returns a distance beetween two points by cartesian coordinates.
+ * Returns a distance beetween two points by cartesian coordinates.                  4
  *
  * @param {number} x1
  * @param {number} y1
@@ -73,11 +76,19 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
+
+    let xs = x2 - x1;
+    let ys = y2 - y1;
+
+    xs = xs * xs;
+    ys = ys * ys;
+
+    return Math.sqrt(xs + ys);
+
 }
 
 /**
- * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
+ * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.             5
  *
  * @param {number} a
  * @param {number} b
@@ -89,13 +100,13 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-    throw new Error('Not implemented');
+    return -b/a;
 }
 
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi, coordinates in Cartesian plane
- * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
+ * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations                                 6
  *
  * @param {number} x1
  * @param {number} y1
@@ -111,11 +122,14 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
+
+    return Math.abs(Math.atan(y2 / x2) - Math.atan(y1 / x1));
+
+
 }
 
 /**
- * Returns a last digit of a integer number.
+ * Returns a last digit of a integer number.                                7
  *
  * @param {number} value
  * @return {number}
@@ -127,12 +141,12 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    throw new Error('Not implemented');
+    return value % 10;
 }
 
 
 /**
- * Returns a number by given string representation.
+ * Returns a number by given string representation.                            8
  *
  * @param {string} value
  * @return {number}
@@ -143,11 +157,11 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    throw new Error('Not implemented');
+    return +value;
 }
 
 /**
- * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
+ * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.              9
  *
  * @param {number} a
  * @param {number} b
@@ -160,11 +174,11 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a,b,c) {
-    throw new Error('Not implemented');
+    return Math.sqrt(a*a + b*b + c*c);
 }
 
 /**
- * Returns the number rounded to specified power of 10.
+ * Returns the number rounded to specified power of 10.                          10
  *
  * @param {number} num
  * @param {number} pow
@@ -181,11 +195,11 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-    throw new Error('Not implemented');
+    return Math.round(num / Math.pow(10, pow)) * Math.pow(10, pow);
 }
 
 /**
- * Returns true is the number is prime; otherwise false.
+ * Returns true is the number is prime; otherwise false.                               11
  * See: https://en.wikipedia.org/wiki/Primality_test
  *
  * @param {number} n
@@ -206,7 +220,7 @@ function isPrime(n) {
 }
 
 /**
- * Tries to convert value to number and returns it if conversion was successfull;
+ * Tries to convert value to number and returns it if conversion was successfull;                12
  * otherwise returns default value passed as a second argument.
  *
  * @param {any} value

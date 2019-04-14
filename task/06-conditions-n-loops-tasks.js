@@ -14,7 +14,7 @@
  * 1) return original number
  * 2) but if number multiples of three return 'Fizz'
  * 3) for the multiples of five return 'Buzz'
- * 4) for numbers which are multiples of both three and five return 'FizzBuzz'
+ * 4) for numbers which are multiples of both three and five return 'FizzBuzz'                      1
  *
  * @param {number} num
  * @return {any}
@@ -30,12 +30,14 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    return !(num % 15) ? 'FizzBuzz' :
+            !(num % 3) ? 'Fizz' :
+            !(num % 5) ? 'Buzz' : num;
 }
 
 
 /**
- * Returns the factorial of the specified integer n.
+ * Returns the factorial of the specified integer n.                                               2
  *
  * @param {number} n
  * @return {number}
@@ -46,12 +48,13 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    if ( n === 1) return 1;
+    return n * getFactorial( n - 1 );
 }
 
 
 /**
- * Returns the sum of integer numbers between n1 and n2 (inclusive).
+ * Returns the sum of integer numbers between n1 and n2 (inclusive).                               3
  *
  * @param {number} n1
  * @param {number} n2
@@ -63,12 +66,16 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    let sum = 0;
+    for(let i = n1; i <= n2; ++i){
+        sum += i;
+    }
+    return sum;
 }
 
 
 /**
- * Returns true, if a triangle can be built with the specified sides a,b,c and false in any other ways.
+ * Returns true, if a triangle can be built with the specified sides a,b,c and false in any other ways.            4
  *
  * @param {number} a
  * @param {number} b
@@ -82,12 +89,12 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    return Math.max(a, b, c) < a + b + c - Math.max(a, b, c);
 }
 
 
 /**
- * Returns true, if two specified axis-aligned rectangles overlap, otherwise false.
+ * Returns true, if two specified axis-aligned rectangles overlap, otherwise false.                          5
  * Each rectangle representing by object 
  *  {
  *     top: 5,
@@ -124,7 +131,7 @@ function doRectanglesOverlap(rect1, rect2) {
 
 
 /**
- * Returns true, if point lies inside the circle, otherwise false.
+ * Returns true, if point lies inside the circle, otherwise false.                                      6
  * Circle is an object of 
  *  {
  *     center: {
@@ -150,12 +157,12 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
-    throw new Error('Not implemented');
+    return circle.radius > Math.sqrt(Math.pow(circle.center.x - point.x, 2) + Math.pow(circle.center.y - point.y, 2));
 }
 
 
 /**
- * Returns the first non repeated char in the specified strings otherwise returns null.
+ * Returns the first non repeated char in the specified strings otherwise returns null.                        7
  *
  * @param {string} str
  * @return {string}
@@ -166,12 +173,20 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    let obj = {};
+
+    str.split('').map(elem => obj[elem] ? ++obj[elem]: obj[elem] = 1);
+
+    for(let i in obj){
+        if(obj[i] === 1)
+            return i;
+    }
+    return null;
 }
 
 
 /**
- * Returns the string representation of math interval, specified by two points and include / exclude flags.
+ * Returns the string representation of math interval, specified by two points and include / exclude flags.      8
  * See the details: https://en.wikipedia.org/wiki/Interval_(mathematics)
  *
  * Please take attention, that the smaller number should be the first in the notation
@@ -192,12 +207,12 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    return `${isStartIncluded ? '[' : '('}${Math.min(a, b)}, ${Math.max(a, b)}${isEndIncluded ? ']' : ')'}`
 }
 
 
 /**
- * Reverse the specified string (put all chars in reverse order)
+ * Reverse the specified string (put all chars in reverse order)                                               9
  *
  * @param {string} str
  * @return {string}
@@ -209,12 +224,12 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    return str.split("").reverse().join("");
 }
 
 
 /**
- * Reverse the specified integer number (put all digits in reverse order)
+ * Reverse the specified integer number (put all digits in reverse order)                                   10
  *
  * @param {number} num
  * @return {number}
@@ -226,12 +241,12 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    return +(num + "").split("").reverse().join("");
 }
 
 
 /**
- * Validates the CCN (credit card number) and return true if CCN is valid
+ * Validates the CCN (credit card number) and return true if CCN is valid                                    11
  * and false otherwise.
  *
  * See algorithm here : https://en.wikipedia.org/wiki/Luhn_algorithm
@@ -251,14 +266,17 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
+    return !((ccn + '').split("")
+        .reverse()
+        .map((elem, i) => !(i % 2) ? +elem : elem * 2 > 9 ? elem * 2 - 9 : elem * 2)
+        .reduce((sum, elem) => sum + elem, 0) % 10);
 }
 
 
 /**
  * Returns the digital root of integer:
  *   step1 : find sum of all digits
- *   step2 : if sum > 9 then goto step1 otherwise return the sum
+ *   step2 : if sum > 9 then goto step1 otherwise return the sum                                                12
  *
  * @param {number} n
  * @return {number}
@@ -270,13 +288,13 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    return num % 9;
 }
 
 
 /**
  * Returns true if the specified string has the balanced brackets and false otherwise.
- * Balanced means that is, whether it consists entirely of pairs of opening/closing brackets
+ * Balanced means that is, whether it consists entirely of pairs of opening/closing brackets                      13
  * (in that order), none of which mis-nest.
  * Brackets include [],(),{},<>
  *
@@ -356,7 +374,7 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    return num.toString(n);
 }
 
 

@@ -10,7 +10,7 @@
 
 
 /**
- * Returns the result of concatenation of two strings.
+ * Returns the result of concatenation of two strings.           1
  *
  * @param {string} value1
  * @param {string} value2
@@ -22,12 +22,12 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-    throw new Error('Not implemented');
+    return value1.concat(value2);
 }
 
 
 /**
- * Returns the length of given string.
+ * Returns the length of given string.                  2
  *
  * @param {string} value
  * @return {number}
@@ -38,11 +38,11 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-    throw new Error('Not implemented');
+    return value.length;
 }
 
 /**
- * Returns the result of string template and given parameters firstName and lastName.
+ * Returns the result of string template and given parameters firstName and lastName.             3
  * Please do not use concatenation, use template string :
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings
  *
@@ -55,11 +55,11 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    throw new Error('Not implemented');
+    return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
- * Extracts a name from template string 'Hello, First_Name Last_Name!'.
+ * Extracts a name from template string 'Hello, First_Name Last_Name!'.                       4
  *
  * @param {string} value
  * @return {string}
@@ -74,7 +74,7 @@ function extractNameFromTemplate(value) {
 
 
 /**
- * Returns a first char of the given string.
+ * Returns a first char of the given string.                                                5
  *
  * @param {string} value
  * @return {string}
@@ -84,11 +84,11 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-    throw new Error('Not implemented');
+    return value[0];
 }
 
 /**
- * Removes a leading and trailing whitespace characters from string.
+ * Removes a leading and trailing whitespace characters from string.                      6
  *
  * @param {string} value
  * @return {string}
@@ -99,11 +99,11 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-    throw new Error('Not implemented');
+    return value.trim();
 }
 
 /**
- * Returns a string that repeated the specified number of times.
+ * Returns a string that repeated the specified number of times.                          7
  *
  * @param {string} value
  * @param {string} count
@@ -114,11 +114,11 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-    throw new Error('Not implemented');
+    return value.repeat(count);
 }
 
 /**
- * Remove the first occurrence of string inside another string
+ * Remove the first occurrence of string inside another string  !!                         8
  * 
  * @param {string} str
  * @param {string} value
@@ -130,11 +130,15 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-    throw new Error('Not implemented');
+    let str = '';
+    for(let i = 0; i < count; i++){
+        str += value;
+    }
+    return str;
 }
 
 /**
- * Remove the first and last angle brackets from tag string
+ * Remove the first and last angle brackets from tag string                                   9
  *
  * @param {string} str
  * @return {string}
@@ -145,7 +149,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-    throw new Error('Not implemented');
+    return str.replace(value, '');
 }
 
 
@@ -160,7 +164,7 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-    throw new Error('Not implemented');
+    return str.slice(1, -1);
 }
 
 /**
@@ -174,7 +178,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-    throw new Error('Not implemented');
+    return str.toLocaleUpperCase();
 }
 
 /**

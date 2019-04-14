@@ -11,7 +11,7 @@
 
  
 /**
- * Returns an index of the specified element in array or -1 if element is not found
+ * Returns an index of the specified element in array or -1 if element is not found                 1
  * 
  * @param {array} arr
  * @param {any} value
@@ -23,11 +23,11 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-   throw new Error('Not implemented');
+   return arr.indexOf(value);
 }
 
 /**
- * Generates an array of odd numbers of the specified length
+ * Generates an array of odd numbers of the specified length                                          2
  * 
  * @param {number} len
  * @return {array}
@@ -38,12 +38,14 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-   throw new Error('Not implemented');
+   return Array.from({length: len}, (undefined, i) => i * 2 + 1);
+
+
 }
 
 
 /**
- * Returns the doubled array - elements of the specified array are repeated twice using original order
+ * Returns the doubled array - elements of the specified array are repeated twice using original order             3
  * 
  * @param {array} arr
  * @return {array}
@@ -54,12 +56,14 @@ function generateOdds(len) {
  *    [] => [] 
  */
 function doubleArray(arr) {
-   throw new Error('Not implemented');
+
+   return arr.concat(arr);
+
 }
 
 
 /**
- * Returns an array of positive numbers from the specified array in original order
+ * Returns an array of positive numbers from the specified array in original order            4
  * 
  * @param {array} arr
  * @return {array}
@@ -70,11 +74,11 @@ function doubleArray(arr) {
  *    [] => [] 
  */
 function getArrayOfPositives(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(elem => elem > 0);
 }
 
 /**
- * Returns the array with strings only in the specified array (in original order)
+ * Returns the array with strings only in the specified array (in original order)             5
  * 
  * @param {array} arr
  * @return {array}
@@ -85,13 +89,13 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(elem => typeof elem === "string");
 }
 
 /**
  * Removes falsy values from the specified array
  * Falsy values: false, null, 0, "", undefined, and NaN.
- * (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean#Description)
+ * (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean#Description)       6
  * 
  * @param {array} arr
  * @return {array}
@@ -102,11 +106,11 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(elem => elem);
 }
 
 /**
- * Returns the array of useprcase strings from the specified array
+ * Returns the array of useprcase strings from the specified array                7
  * 
  * @param {array} arr
  * @return {array}
@@ -116,12 +120,12 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-   throw new Error('Not implemented');
+   return arr.map(elem => elem.toUpperCase());
 }
 
 
 /**
- * Returns the array of string lengths from the specified string array.
+ * Returns the array of string lengths from the specified string array.             8
  * 
  * @param {array} arr
  * @return {array}
@@ -131,11 +135,11 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-   throw new Error('Not implemented');
+   return arr.map(toNum => toNum.length);
 }
 
 /**
- * Inserts the item into specified array at specified index
+ * Inserts the item into specified array at specified index                      9
  * 
  * @param {array} arr
  * @param {any} item
@@ -146,11 +150,11 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-   throw new Error('Not implemented');
+   return arr.splice(index, 0, item);
 }
 
 /**
- * Returns the n first items of the specified array
+ * Returns the n first items of the specified array                          10
  * 
  * @param {array} arr
  * @param {number} n 
@@ -160,12 +164,12 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-   throw new Error('Not implemented');
+   return arr.splice(0,n);
 }
 
 
 /**
- * Returns the n last items of the specified array
+ * Returns the n last items of the specified array                           11
  * 
  * @param {array} arr
  * @param {number} n 
@@ -175,12 +179,12 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-   throw new Error('Not implemented');
+   return arr.slice(-n);
 }
 
 
 /**
- * Returns CSV represebtation of two-dimentional numeric array.
+ * Returns CSV represebtation of two-dimentional numeric array.                12
  * https://en.wikipedia.org/wiki/Comma-separated_values
  * 
  * @param {array} arr
@@ -200,11 +204,11 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   throw new Error('Not implemented');
+   return arr.map(elem => elem.join()).join('\n');
 }
 
 /**
- * Transforms the numeric array into the according array of squares:
+ * Transforms the numeric array into the according array of squares:                        13
  *   f(x) = x * x
  * 
  * @param {array} arr
@@ -215,12 +219,12 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-   throw new Error('Not implemented');
+   return arr.map(elem => elem * elem);
 }
 
 
 /**
- * Transforms the numeric array to the according moving sum array:
+ * Transforms the numeric array to the according moving sum array:                      14
  *     f[n] = x[0] + x[1] + x[2] +...+ x[n] 
  *  or f[n] = f[n-1] + x[n]
  * 
@@ -234,11 +238,15 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   throw new Error('Not implemented');
+   arr.reduce((sum, elem, i, arr) => {
+      arr[i] += sum;
+      return arr[i];
+   }, 0)
+   return arr;
 }
 
 /**
- * Returns every second item from the specified array:
+ * Returns every second item from the specified array:                                          15
  * 
  * @param {array} arr
  * @return {array}
@@ -249,13 +257,13 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   throw new Error('Not implemented');
+   return arr.filter((elem, i) => i % 2);
 }
 
 
 /**
  * Propagates every item in sequence its position times
- * Returns an array that consists of: one first item, two second items, tree third items etc. 
+ * Returns an array that consists of: one first item, two second items, tree third items etc.               16
  * 
  * @param {array} arr 
  * @return {array}
@@ -268,12 +276,14 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce((finalArr, elem, i) => {
+      return finalArr.concat(Array.from({length: i + 1}, () => elem));
+   }, []);
 }
 
 
 /** 
- * Returns the 3 largest numbers from the specified array
+ * Returns the 3 largest numbers from the specified array                                                 17
  * 
  * @param {array} arr
  * @return {array}
@@ -286,12 +296,12 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   throw new Error('Not implemented');
+   return arr.slice(-3).reverse();
 }
  
  
 /**  
- * Returns the number of positive numbers from specified array
+ * Returns the number of positive numbers from specified array                                          18
  * 
  * @param {array} arr
  * @return {number}
@@ -304,11 +314,11 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce((count, elem) => typeof elem === "number" && elem > 0 ? ++count : count, 0);
 }
  
 /** 
- * Sorts digit names
+ * Sorts digit names                                                                     19
  * 
  * @param {array} arr
  * @return {array}
@@ -321,11 +331,23 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   throw new Error('Not implemented');
+   let obj = {
+      'zero': 0,
+      'one': 1,
+      'two': 2,
+      'three': 3,
+      'four': 4,
+      'five': 5,
+      'six': 6,
+      'seven': 7,
+      'eight': 8,
+      'nine': 9
+   }
+   return arr.sort((a, b) => (obj[a] > obj[b]));
 }
 
 /** 
- * Returns the sum of all items in the specified array of numbers
+ * Returns the sum of all items in the specified array of numbers                                       20
  * 
  * @param {array} arr
  * @return {number}
@@ -337,11 +359,11 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce((sum, item) => sum += item, 0);
 }
  
 /** 
- * Returns the number of all falsy value in the specified array
+ * Returns the number of all falsy value in the specified array                                             21
  * 
  * @param {array} arr
  * @return {array}
@@ -353,11 +375,11 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce((count, item) => item ? count : ++count, 0);
 }
 
 /**
- * Returns a number of all occurences of the specified item in an array  
+ * Returns a number of all occurences of the specified item in an array                                      22
  * 
  * @param {array} arr
  * @param {any} item 
@@ -371,11 +393,11 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
+   return arr.reduce((count, elem) => item === elem ? ++count : count, 0);
 }
 
 /**
- * Concatenates all elements from specified array into single string with ',' delimeter  
+ * Concatenates all elements from specified array into single string with ',' delimeter                         23
  * 
  * @param {array} arr 
  * @return {string}
@@ -386,12 +408,12 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-   throw new Error('Not implemented');
+   return arr + "";
 }
 
 
 /**
- * Sorts the specified array by country name first and city name (if countries are equal) in ascending order.
+ * Sorts the specified array by country name first and city name (if countries are equal) in ascending order.       24
  * 
  * @param {array} arr
  * @return {array}
@@ -415,11 +437,11 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
+   return arr.sort((a, b) => a.country < b.country ? -1 : a.country !== b.country ? 1 : a.city < b.city ? -1 : 1);
 }
 
 /**
- * Creates an indentity matrix of the specified size
+ * Creates an indentity matrix of the specified size             25
  * 
  * @param {number} n
  * @return {array}
@@ -437,11 +459,11 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+   return Array.from({length: n}, (elem, iWrap) => Array.from({length: n}, (elem, i) => i === iWrap ? 1 : 0));
 }
 
 /**
- * Creates an array of integers from the specified start to end (inclusive)
+ * Creates an array of integers from the specified start to end (inclusive)                26
  * 
  * @param {number} start
  * @param {number} end
@@ -454,11 +476,11 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-   throw new Error('Not implemented');
+   return Array.from({length: end - start + 1}, () => start++);
 }
 
 /**
- * Returns array containing only unique values from the specified array.
+ * Returns array containing only unique values from the specified array.                 27
  *
  * @param {array} arr
  * @return {array}
@@ -469,12 +491,12 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce((finalArr, elem) => finalArr.indexOf(elem) < 0 ? finalArr.concat(elem) : finalArr, []);
 }
 
 /**
  * Groups elements of the specified array by key.
- * Returns multimap of keys extracted from array elements via keySelector callback
+ * Returns multimap of keys extracted from array elements via keySelector callback               28npm
  * and values extracted via valueSelector callback.
  * See: https://en.wikipedia.org/wiki/Multimap
  *
